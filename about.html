@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Fast. Reliable. Relentless.</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+:root{--bg-primary:#f8f9fa;--bg-secondary:#ffffff;--bg-tertiary:#e9ecef;--text-primary:#0d1b3e;--text-secondary:#4a5568;--text-muted:#718096;--accent:#f59e0b;--accent-hover:#d97706;--primary:#0d1b3e;--primary-light:#1e3a5f;--card-bg:#ffffff;--card-border:#e2e8f0;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 10px 40px rgba(0,0,0,0.12);--nav-bg:rgba(248,249,250,0.85);--footer-bg:#0d1b3e;--footer-text:#cbd5e1;--input-bg:#f1f5f9;}
+body.dark-mode{--bg-primary:#0a0a0f;--bg-secondary:#111118;--bg-tertiary:#1a1a2e;--text-primary:#e5e7eb;--text-secondary:#9ca3af;--text-muted:#6b7280;--accent:#f59e0b;--accent-hover:#fbbf24;--primary:#f59e0b;--primary-light:#fbbf24;--card-bg:#16161f;--card-border:#2d2d44;--shadow:0 4px 20px rgba(0,0,0,0.3);--shadow-lg:0 10px 40px rgba(0,0,0,0.4);--nav-bg:rgba(10,10,15,0.9);--footer-bg:#060609;--footer-text:#9ca3af;--input-bg:#1a1a2e;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);transition:background .4s,color .4s;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);transition:all .4s;}
+.navbar.scrolled{box-shadow:var(--shadow);}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo img{height:50px;width:auto;object-fit:contain;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:color .3s;position:relative;padding:4px 0;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;}
+.theme-toggle:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s;border-radius:2px;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.active{display:flex;}
+.mobile-menu a{font-size:1.3rem;font-weight:600;color:var(--text-primary);transition:color .3s;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--accent);}
+section{padding:100px 24px;}.container{max-width:1200px;margin:0 auto;}
+.section-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:6px 16px;border-radius:50px;color:var(--accent);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.section-title{font-size:2.5rem;font-weight:700;color:var(--text-primary);margin-bottom:16px;line-height:1.2;}
+.section-subtitle{font-size:1.05rem;color:var(--text-secondary);max-width:600px;line-height:1.7;}
+.page-hero{position:relative;padding:160px 24px 100px;background:linear-gradient(135deg,#0d1b3e 0%,#1e3a5f 100%);text-align:center;overflow:hidden;}
+body.dark-mode .page-hero{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b3e 100%);}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.page-hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;background:var(--bg-primary);clip-path:ellipse(55% 100% at 50% 100%);}
+.page-hero h1{color:#fff;font-size:3rem;margin-bottom:12px;position:relative;}
+.page-hero p{color:rgba(255,255,255,.7);font-size:1.1rem;position:relative;max-width:600px;margin:0 auto;}
+.page-hero .breadcrumb{position:relative;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.5);font-size:.85rem;}
+.page-hero .breadcrumb a{color:rgba(255,255,255,.6);transition:color .3s;}
+.page-hero .breadcrumb a:hover{color:var(--accent);}
+.page-hero .breadcrumb i{font-size:.7rem;}
+.about-story{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px;}
+.about-image{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);}
+.about-image img{width:100%;height:450px;object-fit:cover;}
+.about-image::after{content:'';position:absolute;inset:0;border:3px solid var(--accent);border-radius:16px;transform:translate(12px,12px);z-index:-1;}
+.about-text h2{margin-bottom:20px;}
+.about-text p{color:var(--text-secondary);line-height:1.8;margin-bottom:16px;font-size:.95rem;}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.about-feat{display:flex;align-items:center;gap:10px;}
+.about-feat i{color:var(--accent);font-size:.9rem;}
+.about-feat span{font-size:.88rem;font-weight:500;color:var(--text-primary);}
+.mv-section{background:var(--bg-secondary);}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;}
+.mv-card{background:var(--bg-primary);border:1px solid var(--card-border);border-radius:16px;padding:40px;transition:all .3s;position:relative;overflow:hidden;}
+.mv-card:hover{border-color:var(--accent);box-shadow:var(--shadow-lg);}
+.mv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),transparent);}
+.mv-icon{width:56px;height:56px;border-radius:12px;background:rgba(245,158,11,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.mv-icon i{font-size:1.3rem;color:var(--accent);}
+.mv-card h3{font-size:1.3rem;margin-bottom:12px;color:var(--text-primary);}
+.mv-card p{color:var(--text-secondary);line-height:1.7;font-size:.93rem;}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;}
+.value-card{text-align:center;padding:32px 20px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;transition:all .3s;}
+.value-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--accent);}
+.value-icon{width:64px;height:64px;border-radius:50%;background:rgba(245,158,11,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:all .3s;}
+.value-card:hover .value-icon{background:var(--accent);}
+.value-icon i{font-size:1.4rem;color:var(--accent);transition:color .3s;}
+.value-card:hover .value-icon i{color:#fff;}
+.value-card h4{font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text-primary);}
+.value-card p{font-size:.84rem;color:var(--text-secondary);line-height:1.6;}
+.team-section{background:var(--bg-secondary);}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:48px;}
+.team-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;transition:all .4s;text-align:center;}
+.team-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+.team-img{position:relative;height:300px;overflow:hidden;}
+.team-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.team-card:hover .team-img img{transform:scale(1.05);}
+.team-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,var(--card-bg));}
+.team-social{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);display:flex;gap:8px;opacity:0;transition:all .4s;z-index:2;}
+.team-card:hover .team-social{opacity:1;bottom:80px;}
+.team-social a{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#0d1b3e;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:transform .3s;}
+.team-social a:hover{transform:scale(1.15);}
+.team-info{padding:16px 20px 28px;}
+.team-info h3{font-size:1.1rem;color:var(--text-primary);margin-bottom:4px;}
+.team-info p{font-size:.85rem;color:var(--accent);font-weight:500;}
+.footer{background:var(--footer-bg);padding:80px 24px 0;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-brand p{color:var(--footer-text);font-size:.9rem;line-height:1.7;margin-top:16px;}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--footer-text);font-size:.95rem;transition:all .3s;}
+.footer-social a:hover{background:var(--accent);color:#0d1b3e;transform:translateY(-3px);}
+.footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
+.footer-col ul{list-style:none;}.footer-col li{margin-bottom:12px;}
+.footer-col a{color:var(--footer-text);font-size:.88rem;transition:color .3s;}.footer-col a:hover{color:var(--accent);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:24px 0;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;}
+.scroll-top{position:fixed;bottom:30px;right:30px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#0d1b3e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 15px rgba(245,158,11,.4);opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s;}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.scroll-top:hover{transform:translateY(-3px);box-shadow:0 6px 25px rgba(245,158,11,.5);}
+.animate-on-scroll{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1);}
+.animate-on-scroll.from-left{transform:translateX(-40px);}.animate-on-scroll.from-right{transform:translateX(40px);}
+.animate-on-scroll.animated{opacity:1;transform:translate(0,0);}
+.delay-1{transition-delay:.1s!important;}.delay-2{transition-delay:.2s!important;}.delay-3{transition-delay:.3s!important;}.delay-4{transition-delay:.4s!important;}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}.values-grid{grid-template-columns:repeat(2,1fr);}.about-story{grid-template-columns:1fr;gap:40px;}.about-image{max-width:500px;margin:0 auto;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.page-hero h1{font-size:2rem;}.section-title{font-size:1.8rem;}.mv-grid{grid-template-columns:1fr;}.values-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr;gap:32px;}.about-features{grid-template-columns:1fr;}}
+@media(max-width:480px){section{padding:60px 16px;}.values-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <!-- <li><a href="case.html">Track Case</a></li> -->
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html" class="active">About Us</a><a href="services.html">Services</a><a href="faq.html">FAQ</a>
+  <!-- <a href="case.html">Track Case</a> -->
+  <a href="contact.html">Contact</a>
+</div>
+<section class="page-hero">
+  <h1>About Us</h1>
+  <p>Learn about the passionate team behind Rapid Retrievals and our mission to protect what matters to you.</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i> About Us</div>
+</section>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<section>
+  <div class="container">
+    <div class="about-story">
+      <div class="about-image animate-on-scroll from-left">
+        <img src="https://plus.unsplash.com/premium_photo-1682431073110-725015918624?w=500&auto=format&fit=crop&q=60" alt="Rapid Retrievals Team">
+      </div>
+      <div class="about-text animate-on-scroll from-right">
+        <div class="section-badge"><i class="fas fa-building"></i> Our Story</div>
+        <h2 class="section-title">Built from a Passion for Justice</h2>
+        <p>Rapid Retrievals was founded in 2018 with a simple but powerful mission: to help people recover what was wrongfully taken from them. What started as a small operation run by a handful of tech-savvy security enthusiasts has grown into one of the most trusted names in asset recovery and digital security.</p>
+        <p>Our founder, after personally experiencing the frustration of having a vehicle stolen with no recourse, decided to build a company that would stand in the gap for everyday people. Today, we've expanded our capabilities to cover not just physical assets but digital ones as well, staying ahead of evolving threats.</p>
+        <p>With over 5,000 successful recoveries across multiple countries, we've proven that with the right technology, expertise, and determination, no asset is truly lost.</p>
+        <div class="about-features">
+          <div class="about-feat"><i class="fas fa-check-circle"></i><span>Est. 2018</span></div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i><span>5,000+ Recoveries</span></div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i><span>12 Countries</span></div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i><span>50+ Experts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mv-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-badge animate-on-scroll"><i class="fas fa-compass"></i> Direction</div>
+      <h2 class="section-title animate-on-scroll delay-1">Our Mission & Vision</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card animate-on-scroll">
+        <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To provide fast, reliable, and ethical recovery services for stolen physical assets and compromised digital accounts, leveraging cutting-edge technology and a global network of experts to deliver results when our clients need them most.</p>
+        <p style="margin-top:12px;">We exist to restore peace of mind — one recovery at a time.</p>
+      </div>
+      <div class="mv-card animate-on-scroll delay-1">
+        <div class="mv-icon"><i class="fas fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To become the world's leading asset recovery and digital security firm, setting the standard for ethical practices, technological innovation, and client satisfaction in the industry.</p>
+        <p style="margin-top:12px;">We envision a future where theft — whether physical or digital — is no longer a dead end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-badge animate-on-scroll"><i class="fas fa-gem"></i> Values</div>
+      <h2 class="section-title animate-on-scroll delay-1">Our Core Values</h2>
+      <p class="section-subtitle animate-on-scroll delay-2" style="margin:0 auto;">These principles guide every decision we make and every case we handle.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card animate-on-scroll"><div class="value-icon"><i class="fas fa-shield-halved"></i></div><h4>Integrity</h4><p>We operate within the bounds of the law and maintain complete transparency with our clients at every stage.</p></div>
+      <div class="value-card animate-on-scroll delay-1"><div class="value-icon"><i class="fas fa-bolt"></i></div><h4>Urgency</h4><p>Time is critical in recovery. We act fast because every minute matters when your assets are on the line.</p></div>
+      <div class="value-card animate-on-scroll delay-2"><div class="value-icon"><i class="fas fa-users"></i></div><h4>Client First</h4><p>Your needs come above everything else. We tailor our approach to each unique case and keep you informed.</p></div>
+      <div class="value-card animate-on-scroll delay-3"><div class="value-icon"><i class="fas fa-lightbulb"></i></div><h4>Innovation</h4><p>We continuously invest in the latest tracking and recovery technologies to stay ahead of sophisticated threats.</p></div>
+    </div>
+  </div>
+</section>
+<section class="team-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-badge animate-on-scroll"><i class="fas fa-people-group"></i> Our Team</div>
+      <h2 class="section-title animate-on-scroll delay-1">Meet the People Behind the Mission</h2>
+      <p class="section-subtitle animate-on-scroll delay-2" style="margin:0 auto;">A dedicated team of security experts, tech specialists, and field operatives working around the clock for you.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card animate-on-scroll"><div class="team-img"><img src="https://media.istockphoto.com/id/1475634137/photo/portrait-of-handsome-middle-aged-businessman-in-suit-standing-with-folded-arms.webp?a=1&b=1&s=612x612&w=0&k=20&c=wkkL4Tym-ZaJpW7pzmJKI1zZv6eXo4oLZ9P3yn7QejY=" alt="Founder"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Marcus Sterling</h3><p>Founder & CEO</p></div></div>
+      <div class="team-card animate-on-scroll delay-1"><div class="team-img"><img src="https://media.istockphoto.com/id/1870330479/photo/portrait-arab-business-woman-in-hijab-and-suit-with-arms-crossed-looking-at-camera.webp?a=1&b=1&s=612x612&w=0&k=20&c=1msYzIwTr2A-yvReLIoCFwz4tRktAG5IJAip5LJ0q1c=" alt="CTO"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Elena Rodriguez</h3><p>Chief Technology Officer</p></div></div>
+      <div class="team-card animate-on-scroll delay-2"><div class="team-img"><img src="https://images.unsplash.com/photo-1623880840102-7df0a9f3545b?w=500&auto=format&fit=crop&q=60" alt="Head of Operations"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>David Rhetts</h3><p>Head of Field Operations</p></div></div>
+      <div class="team-card animate-on-scroll delay-3"><div class="team-img"><img src="https://media.istockphoto.com/id/1987405506/photo/happy-portrait-and-woman-in-office-for-business-accounting-and-working-in-finance-from.webp?a=1&b=1&s=612x612&w=0&k=20&c=yinbApaqXxNM2mGGnfP1IzSHrIcCaaHS29KUJczOX4U=" alt="Cyber Security Lead"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Nicole Shay</h3><p>Cyber Security Lead</p></div></div>
+      <div class="team-card animate-on-scroll"><div class="team-img"><img src="https://images.unsplash.com/photo-1731743377370-d7346ca6b3da?w=500&auto=format&fit=crop&q=60" alt="Senior Recovery Specialist"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>James Hartley</h3><p>Senior Recovery Specialist</p></div></div>
+      <div class="team-card animate-on-scroll delay-1"><div class="team-img"><img src="https://media.istockphoto.com/id/1734158916/photo/beautiful-female-surgeon-smiles-for-the-camera.webp?a=1&b=1&s=612x612&w=0&k=20&c=utBNP0goy9JD0Sz0u-QGtHza4KvdMBHKYMYErLt7vVw=" alt="Client Relations Manager"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Sophie Laurent</h3><p>Client Relations Manager</p></div></div>
+      <div class="team-card animate-on-scroll delay-2"><div class="team-img"><img src="https://images.unsplash.com/photo-1662833595899-07c57d617f56?w=500&auto=format&fit=crop&q=60" alt="GPS Engineer"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Seth Nolan</h3><p>GPS Tracking Engineer</p></div></div>
+      <div class="team-card animate-on-scroll delay-3"><div class="team-img"><img src="https://images.unsplash.com/photo-1736939627157-dbb5a6a3421b?w=500&auto=format&fit=crop&q=60" alt="Legal Advisor"><div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="team-info"><h3>Michael Chen</h3><p>Legal Advisor</p></div></div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="color:#fff;"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+      <p>Your trusted partner in tracking and recovering stolen vehicles, digital accounts, and protecting your assets with advanced technology.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/18JBDiEGvh/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/12763561874" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:rapidretrievals@outlook.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Vehicle Recovery</a></li><li><a href="services.html">Account Recovery</a></li><li><a href="services.html">Tracker Installation</a></li><li><a href="services.html">Bike Recovery</a></li><li><a href="services.html">Caravan Recovery</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="case.html">Track Case</a></li><li><a href="contact.html">Email Support</a></li><li><a href="faq.html">Help Center</a></li><li><a href="contact.html">Live Chat</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Rapid Retrievals. All rights reserved. | Designed with <i class="fas fa-heart" style="color:var(--accent);"></i> for your security.</p></div>
+</footer>
+<button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ca763ad746a31c382e0ca3/1jkvdrmf2';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<script>
+ $(document).ready(function(){
+  $(window).on('scroll',function(){if($(this).scrollTop()>50)$('#navbar').addClass('scrolled');else $('#navbar').removeClass('scrolled');if($(this).scrollTop()>500)$('#scrollTop').addClass('visible');else $('#scrollTop').removeClass('visible');});
+  $('#scrollTop').on('click',function(){$('html,body').animate({scrollTop:0},600);});
+  function checkAnimations(){$('.animate-on-scroll').each(function(){if($(this).offset().top<$(window).scrollTop()+$(window).height()-60)$(this).addClass('animated');});}
+  $(window).on('scroll',checkAnimations);checkAnimations();
+  if(localStorage.getItem('darkMode')==='true'){$('body').addClass('dark-mode');$('#themeToggle i').removeClass('fa-moon').addClass('fa-sun');}
+  $('#themeToggle').on('click',function(){$('body').toggleClass('dark-mode');$(this).find('i').toggleClass('fa-moon fa-sun');localStorage.setItem('darkMode',$('body').hasClass('dark-mode'));});
+  $('#hamburger').on('click',function(){$(this).toggleClass('active');$('#mobileMenu').toggleClass('active');$('body').css('overflow',$('#mobileMenu').hasClass('active')?'hidden':'');});
+  $('#mobileMenu a').on('click',function(){$('#hamburger').removeClass('active');$('#mobileMenu').removeClass('active');$('body').css('overflow','');});
+});
+</script>
+</body>
+</html>

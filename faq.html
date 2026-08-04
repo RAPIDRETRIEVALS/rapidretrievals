@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>FAQ — Fast. Reliable. Relentless.</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+:root{--bg-primary:#f8f9fa;--bg-secondary:#ffffff;--bg-tertiary:#e9ecef;--text-primary:#0d1b3e;--text-secondary:#4a5568;--text-muted:#718096;--accent:#f59e0b;--accent-hover:#d97706;--primary:#0d1b3e;--primary-light:#1e3a5f;--card-bg:#ffffff;--card-border:#e2e8f0;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 10px 40px rgba(0,0,0,0.12);--nav-bg:rgba(248,249,250,0.98);--footer-bg:#0d1b3e;--footer-text:#cbd5e1;--input-bg:#f1f5f9;}
+body.dark-mode{--bg-primary:#0a0a0f;--bg-secondary:#111118;--bg-tertiary:#1a1a2e;--text-primary:#e5e7eb;--text-secondary:#9ca3af;--text-muted:#6b7280;--accent:#f59e0b;--accent-hover:#fbbf24;--primary:#f59e0b;--primary-light:#fbbf24;--card-bg:#16161f;--card-border:#2d2d44;--shadow:0 4px 20px rgba(0,0,0,0.3);--shadow-lg:0 10px 40px rgba(0,0,0,0.4);--nav-bg:rgba(10,10,15,0.95);--footer-bg:#060609;--footer-text:#9ca3af;--input-bg:#1a1a2e;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);transition:background .4s,color .4s;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);transition:all .4s;}
+.navbar.scrolled{box-shadow:var(--shadow);}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo img{height:50px;width:auto;object-fit:contain;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:color .3s;position:relative;padding:4px 0;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;}
+.theme-toggle:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1002;position:relative;}
+.hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s;border-radius:2px;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg-primary);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;}
+.mobile-menu.active{display:flex;opacity:1;visibility:visible;}
+.mobile-menu a{font-size:1.5rem;font-weight:600;color:var(--text-primary);transition:color .3s;padding:8px 16px;border-radius:40px;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--accent);background:rgba(245,158,11,0.1);}
+body.dark-mode .mobile-menu{background:rgba(10,10,15,0.97);}
+section{padding:100px 24px;}.container{max-width:900px;margin:0 auto;}
+.page-hero{position:relative;padding:160px 24px 100px;background:linear-gradient(135deg,#0d1b3e 0%,#1e3a5f 100%);text-align:center;overflow:hidden;}
+body.dark-mode .page-hero{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b3e 100%);}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.page-hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;background:var(--bg-primary);clip-path:ellipse(55% 100% at 50% 100%);}
+.page-hero h1{color:#fff;font-size:3rem;margin-bottom:12px;position:relative;}
+.page-hero p{color:rgba(255,255,255,.7);font-size:1.1rem;position:relative;max-width:600px;margin:0 auto;}
+.page-hero .breadcrumb{position:relative;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.5);font-size:.85rem;}
+.page-hero .breadcrumb a{color:rgba(255,255,255,.6);transition:color .3s;}.page-hero .breadcrumb a:hover{color:var(--accent);}
+.page-hero .breadcrumb i{font-size:.7rem;}
+.faq-categories{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;}
+.faq-cat-btn{padding:10px 22px;border-radius:50px;background:var(--card-bg);border:1.5px solid var(--card-border);color:var(--text-secondary);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px;}
+.faq-cat-btn:hover,.faq-cat-btn.active{background:var(--accent);color:#0d1b3e;border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,158,11,.3);}
+.faq-cat-btn i{font-size:.8rem;}
+.faq-group{margin-bottom:16px;}
+.faq-group-title{display:flex;align-items:center;gap:10px;margin-bottom:16px;margin-top:32px;}
+.faq-group-title:first-child{margin-top:0;}
+.faq-group-title i{color:var(--accent);font-size:1.1rem;}
+.faq-group-title h3{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-primary);}
+.faq-item{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:all .3s;}
+.faq-item:hover{border-color:rgba(245,158,11,.3);}
+.faq-item.active{border-color:var(--accent);box-shadow:0 2px 12px rgba(245,158,11,.1);}
+.faq-question{padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .3s;}
+.faq-question:hover{background:rgba(245,158,11,.03);}
+.faq-question h4{font-family:'Inter',sans-serif;font-size:.93rem;font-weight:600;color:var(--text-primary);line-height:1.5;flex:1;}
+.faq-toggle{width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(245,158,11,.08);display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.faq-toggle i{font-size:.75rem;color:var(--accent);transition:transform .3s;}
+.faq-item.active .faq-toggle{background:var(--accent);}
+.faq-item.active .faq-toggle i{color:#0d1b3e;transform:rotate(180deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .3s;}
+.faq-answer-inner{padding:0 22px 20px;color:var(--text-secondary);font-size:.9rem;line-height:1.8;}
+.faq-answer-inner a{color:var(--accent);font-weight:500;transition:color .3s;}.faq-answer-inner a:hover{color:var(--accent-hover);}
+.cta-section{background:linear-gradient(135deg,#0d1b3e 0%,#1e3a5f 100%);text-align:center;padding:100px 24px;position:relative;overflow:hidden;}
+body.dark-mode .cta-section{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b3e 100%);}
+.cta-section::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:rgba(245,158,11,.08);}
+.cta-section h2{color:#fff;font-size:2.2rem;margin-bottom:12px;position:relative;}
+.cta-section p{color:rgba(255,255,255,.7);font-size:1.05rem;margin-bottom:28px;position:relative;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0d1b3e;padding:14px 32px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(245,158,11,.4);}
+.btn-primary:hover{background:#fbbf24;transform:translateY(-2px);box-shadow:0 6px 25px rgba(245,158,11,.5);}
+.footer{background:var(--footer-bg);padding:80px 24px 0;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-brand p{color:var(--footer-text);font-size:.9rem;line-height:1.7;margin-top:16px;}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--footer-text);font-size:.95rem;transition:all .3s;}
+.footer-social a:hover{background:var(--accent);color:#0d1b3e;transform:translateY(-3px);}
+.footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
+.footer-col ul{list-style:none;}.footer-col li{margin-bottom:12px;}
+.footer-col a{color:var(--footer-text);font-size:.88rem;transition:color .3s;}.footer-col a:hover{color:var(--accent);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:24px 0;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;}
+.scroll-top{position:fixed;bottom:30px;right:30px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#0d1b3e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 15px rgba(245,158,11,.4);opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s;}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.scroll-top:hover{transform:translateY(-3px);box-shadow:0 6px 25px rgba(245,158,11,.5);}
+.animate-on-scroll{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1);}
+.animate-on-scroll.animated{opacity:1;transform:translate(0,0);}
+.delay-1{transition-delay:.1s!important;}.delay-2{transition-delay:.2s!important;}.delay-3{transition-delay:.3s!important;}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;background:transparent;}.navbar .nav-inner{padding:12px 20px;}.nav-logo img{height:36px;}.page-hero h1{font-size:2rem;}.faq-categories{gap:8px;}.faq-cat-btn{padding:8px 16px;font-size:.8rem;}.footer-grid{grid-template-columns:1fr;gap:32px;}.cta-section h2{font-size:1.6rem;}.mobile-menu a{font-size:1.3rem;}}
+@media(max-width:480px){section{padding:60px 16px;}.page-hero{padding:130px 20px 80px;}}
+.mobile-menu.active{display:flex!important;animation:fadeIn 0.2s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <!-- <li><a href="case.html">Track Case</a></li> -->
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="faq.html" class="active">FAQ</a>
+  <!-- <a href="case.html">Track Case</a> -->
+  <a href="contact.html">Contact</a>
+</div>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<section class="page-hero">
+  <h1>Frequently Asked Questions</h1>
+  <p>Find answers to the most common questions about our recovery and tracking services.</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i> FAQ</div>
+</section>
+<section style="padding-top:60px;">
+  <div class="container">
+    <div class="faq-categories animate-on-scroll">
+      <button class="faq-cat-btn active" data-category="all"><i class="fas fa-layer-group"></i> All Questions</button>
+      <button class="faq-cat-btn" data-category="vehicle"><i class="fas fa-car-side"></i> Vehicle Recovery</button>
+      <button class="faq-cat-btn" data-category="account"><i class="fas fa-user-shield"></i> Account Recovery</button>
+      <button class="faq-cat-btn" data-category="tracker"><i class="fas fa-location-dot"></i> Tracker Installation</button>
+      <button class="faq-cat-btn" data-category="general"><i class="fas fa-circle-info"></i> General</button>
+    </div>
+    <div class="faq-group animate-on-scroll" data-group="vehicle">
+      <div class="faq-group-title"><i class="fas fa-car-side"></i><h3>Vehicle Recovery</h3></div>
+      <div class="faq-item" data-cat="vehicle"><div class="faq-question"><h4>What types of vehicles can you recover?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We recover cars, motorcycles, scooters, mopeds, trailers, caravans, pickup trucks, and vans. No matter the size or type, our team has the tools and expertise to track and recover it.</div></div></div>
+      <div class="faq-item" data-cat="vehicle"><div class="faq-question"><h4>How long does vehicle recovery typically take?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Recovery times vary, but our average is 24–72 hours. Cases with existing GPS trackers or recent thefts are often resolved much faster — sometimes within hours.</div></div></div>
+      <div class="faq-item" data-cat="vehicle"><div class="faq-question"><h4>Do I need a police report before contacting you?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">While we can begin our assessment immediately, we strongly recommend having a police report number. It helps us coordinate with law enforcement and ensures the recovery process is fully legal.</div></div></div>
+      <div class="faq-item" data-cat="vehicle"><div class="faq-question"><h4>What if my vehicle has been taken to another country?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We have partnerships with recovery teams and law enforcement agencies in over 12 countries. Cross-border recovery is more complex but absolutely possible.</div></div></div>
+      <div class="faq-item" data-cat="vehicle"><div class="faq-question"><h4>How much does vehicle recovery cost?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We operate on a moderate-fee basis. The fee depends on the kind of recovery and how long the asset has been stolen. Contact us for a free consultation and quote.</div></div></div>
+    </div>
+    <div class="faq-group animate-on-scroll" data-group="account">
+      <div class="faq-group-title"><i class="fas fa-user-shield"></i><h3>Account Recovery</h3></div>
+      <div class="faq-item" data-cat="account"><div class="faq-question"><h4>Which platforms can you help recover accounts on?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We specialize in recovering accounts on Meta platforms (Facebook, Instagram, WhatsApp), X, TikTok, Snapchat, LinkedIn, YouTube, Gmail, and most other major social media and email platforms.</div></div></div>
+      <div class="faq-item" data-cat="account"><div class="faq-question"><h4>How do you recover a hacked account? Is it legal?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We use fully authorized and legal methods — working through official platform recovery channels, submitting verified identity claims, and coordinating with platform security teams.</div></div></div>
+      <div class="faq-item" data-cat="account"><div class="faq-question"><h4>What information do I need to provide for account recovery?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Typically: your username/profile link, the email associated with the account, date you noticed it was hacked, any suspicious activity, screenshots if available, and any previous passwords you remember.</div></div></div>
+      <div class="faq-item" data-cat="account"><div class="faq-question"><h4>Can the hacker access my data during the recovery process?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Once we begin recovery, we work to lock down the account immediately to prevent further unauthorized access. We also perform a full security audit after recovery.</div></div></div>
+      <div class="faq-item" data-cat="account"><div class="faq-question"><h4>What if the platform itself won't help me?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">This is exactly where we excel. We have established channels that allow us to escalate cases effectively, even if you've been rejected by the platform's automated systems.</div></div></div>
+    </div>
+    <div class="faq-group animate-on-scroll" data-group="tracker">
+      <div class="faq-group-title"><i class="fas fa-location-dot"></i><h3>Tracker Installation</h3></div>
+      <div class="faq-item" data-cat="tracker"><div class="faq-question"><h4>What type of GPS trackers do you install?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We install military-grade hidden GPS trackers that are tamper-proof, waterproof, and have long battery life (up to 2 years on a single charge). They use both GPS and cellular triangulation.</div></div></div>
+      <div class="faq-item" data-cat="tracker"><div class="faq-question"><h4>Can the tracker be detected or removed by thieves?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Our trackers are installed in hidden locations known only to our technicians. They have anti-tamper alerts — if someone tries to remove or disable the device, you'll receive an instant alert on your phone.</div></div></div>
+      <div class="faq-item" data-cat="tracker"><div class="faq-question"><h4>How do I monitor my vehicle after installation?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">After installation, you get access to a mobile app and web dashboard where you can see your vehicle's real-time location, set geofence boundaries, view location history, and receive instant movement alerts.</div></div></div>
+      <div class="faq-item" data-cat="tracker"><div class="faq-question"><h4>Can I get a tracker installed on multiple vehicles?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely! We offer fleet tracking solutions for businesses with multiple vehicles. You can monitor all your vehicles from a single dashboard with discounted rates for bulk installations.</div></div></div>
+    </div>
+    <div class="faq-group animate-on-scroll" data-group="general">
+      <div class="faq-group-title"><i class="fas fa-circle-info"></i><h3>General Questions</h3></div>
+      <div class="faq-item" data-cat="general"><div class="faq-question"><h4>Are your services available 24/7?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Yes! Theft and hacking don't follow business hours, and neither do we. Our support team, field operatives, and cyber security specialists are available around the clock, 365 days a year.</div></div></div>
+      <div class="faq-item" data-cat="general"><div class="faq-question"><h4>What areas do you cover?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">We have coverage across the UK, US, Canada, Australia, and parts of Europe, the Middle East, and Asia. For areas without physical teams, we can assist with digital recovery and coordinate with local partners.</div></div></div>
+      <div class="faq-item" data-cat="general"><div class="faq-question"><h4>Is my personal information safe with you?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely. We take data privacy extremely seriously. All your information is encrypted, stored securely, and only accessible to authorized team members handling your case. We comply with GDPR and other regulations.</div></div></div>
+      <div class="faq-item" data-cat="general"><div class="faq-question"><h4>What happens after my asset is recovered?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">After recovery, we arrange safe return of your asset, verify its condition, and provide a full recovery report. For accounts, we perform a complete security audit and hardening.</div></div></div>
+      <div class="faq-item" data-cat="general"><div class="faq-question"><h4>How do I get started?</h4><div class="faq-toggle"><i class="fas fa-chevron-down"></i></div></div><div class="faq-answer"><div class="faq-answer-inner">Simply <a href="contact.html">visit our Contact page</a> and fill out the message form with details about your situation, or start a <a href="contact.html">live chat</a> for immediate assistance.</div></div></div>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <h2 class="animate-on-scroll">Still Have Questions?</h2>
+  <p class="animate-on-scroll delay-1">Our team is standing by to answer anything not covered here.</p>
+  <div class="animate-on-scroll delay-2"><a href="https://wa.me/12763561874?text=Hello%20Rapid%20Retrievals%2C%20I%20need%20assistance" target="_blank" class="btn-primary"><i class="fas fa-headset"></i> Contact Support</a></div>
+</section>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="color:#fff;"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+      <p>Your trusted partner in tracking and recovering stolen vehicles, digital accounts, and protecting your assets with advanced technology.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/18JBDiEGvh/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/12763561874" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:rapidretrievals@outlook.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Vehicle Recovery</a></li><li><a href="services.html">Account Recovery</a></li><li><a href="services.html">Tracker Installation</a></li><li><a href="services.html">Bike Recovery</a></li><li><a href="services.html">Caravan Recovery</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="case.html">Track Case</a></li><li><a href="contact.html">Email Support</a></li><li><a href="faq.html">Help Center</a></li><li><a href="contact.html">Live Chat</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Rapid Retrievals. All rights reserved. | Designed with <i class="fas fa-heart" style="color:var(--accent);"></i> for your security.</p></div>
+</footer>
+<button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ca763ad746a31c382e0ca3/1jkvdrmf2';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<script>
+ $(document).ready(function(){
+  $('.faq-question').on('click',function(e){
+    var $item=$(this).closest('.faq-item');var $answer=$item.find('.faq-answer');var isActive=$item.hasClass('active');
+    $('.faq-item').removeClass('active');$('.faq-answer').css('max-height','0');
+    if(!isActive){$item.addClass('active');$answer.css('max-height',$answer[0].scrollHeight+40+'px');}
+    e.stopPropagation();
+  });
+  $('.faq-cat-btn').on('click',function(){
+    var cat=$(this).data('category');$('.faq-cat-btn').removeClass('active');$(this).addClass('active');
+    if(cat==='all'){$('.faq-group').show();$('.faq-item').show();}
+    else{$('.faq-group').each(function(){if($(this).data('group')===cat){$(this).show();$(this).find('.faq-item').show();}else{$(this).hide();}});}
+    $('.faq-item').removeClass('active');$('.faq-answer').css('max-height','0');
+  });
+  $(window).on('scroll',function(){if($(this).scrollTop()>50)$('#navbar').addClass('scrolled');else $('#navbar').removeClass('scrolled');if($(this).scrollTop()>500)$('#scrollTop').addClass('visible');else $('#scrollTop').removeClass('visible');});
+  $('#scrollTop').on('click',function(){$('html,body').animate({scrollTop:0},600);});
+  function checkAnimations(){$('.animate-on-scroll').each(function(){if($(this).offset().top<$(window).scrollTop()+$(window).height()-60)$(this).addClass('animated');});}
+  $(window).on('scroll',checkAnimations);checkAnimations();
+  if(localStorage.getItem('darkMode')==='true'){$('body').addClass('dark-mode');$('#themeToggle i').removeClass('fa-moon').addClass('fa-sun');}
+  $('#themeToggle').on('click',function(){$('body').toggleClass('dark-mode');$(this).find('i').toggleClass('fa-moon fa-sun');localStorage.setItem('darkMode',$('body').hasClass('dark-mode'));});
+  var $hamburger=$('#hamburger'),$mobileMenu=$('#mobileMenu'),$body=$('body');
+  function closeMobileMenu(){$hamburger.removeClass('active');$mobileMenu.removeClass('active');$body.css('overflow','');}
+  function openMobileMenu(){$hamburger.addClass('active');$mobileMenu.addClass('active');$body.css('overflow','hidden');}
+  $hamburger.on('click',function(e){e.stopPropagation();if($mobileMenu.hasClass('active'))closeMobileMenu();else openMobileMenu();});
+  $mobileMenu.find('a').on('click',function(){closeMobileMenu();});
+  $(document).on('click',function(event){if($mobileMenu.hasClass('active')&&!$(event.target).closest('.mobile-menu,.hamburger').length)closeMobileMenu();});
+  $(window).on('resize',function(){if($(window).width()>768&&$mobileMenu.hasClass('active'))closeMobileMenu();});
+});
+</script>
+</body>
+</html>

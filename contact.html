@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Fast. Reliable. Relentless.</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+:root{--bg-primary:#f8f9fa;--bg-secondary:#ffffff;--bg-tertiary:#e9ecef;--text-primary:#0d1b3e;--text-secondary:#4a5568;--text-muted:#718096;--accent:#f59e0b;--accent-hover:#d97706;--primary:#0d1b3e;--primary-light:#1e3a5f;--card-bg:#ffffff;--card-border:#e2e8f0;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 10px 40px rgba(0,0,0,0.12);--nav-bg:rgba(248,249,250,0.85);--footer-bg:#0d1b3e;--footer-text:#cbd5e1;--input-bg:#f1f5f9;--success:#22c55e;--error:#ef4444;}
+body.dark-mode{--bg-primary:#0a0a0f;--bg-secondary:#111118;--bg-tertiary:#1a1a2e;--text-primary:#e5e7eb;--text-secondary:#9ca3af;--text-muted:#6b7280;--accent:#f59e0b;--accent-hover:#fbbf24;--primary:#f59e0b;--primary-light:#fbbf24;--card-bg:#16161f;--card-border:#2d2d44;--shadow:0 4px 20px rgba(0,0,0,0.3);--shadow-lg:0 10px 40px rgba(0,0,0,0.4);--nav-bg:rgba(10,10,15,0.9);--footer-bg:#060609;--footer-text:#9ca3af;--input-bg:#1a1a2e;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);transition:background .4s,color .4s;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);transition:all .4s;}
+.navbar.scrolled{box-shadow:var(--shadow);}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo img{height:50px;width:auto;object-fit:contain;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:color .3s;position:relative;padding:4px 0;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;}
+.theme-toggle:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s;border-radius:2px;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.active{display:flex;}
+.mobile-menu a{font-size:1.3rem;font-weight:600;color:var(--text-primary);transition:color .3s;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--accent);}
+section{padding:100px 24px;}.container{max-width:1200px;margin:0 auto;}
+.page-hero{position:relative;padding:160px 24px 100px;background:linear-gradient(135deg,#0d1b3e 0%,#1e3a5f 100%);text-align:center;overflow:hidden;}
+body.dark-mode .page-hero{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b3e 100%);}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.page-hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;background:var(--bg-primary);clip-path:ellipse(55% 100% at 50% 100%);}
+.page-hero h1{color:#fff;font-size:3rem;margin-bottom:12px;position:relative;}
+.page-hero p{color:rgba(255,255,255,.7);font-size:1.1rem;position:relative;max-width:600px;margin:0 auto;}
+.page-hero .breadcrumb{position:relative;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.5);font-size:.85rem;}
+.page-hero .breadcrumb a{color:rgba(255,255,255,.6);transition:color .3s;}.page-hero .breadcrumb a:hover{color:var(--accent);}
+.page-hero .breadcrumb i{font-size:.7rem;}
+.contact-intro{text-align:center;margin-bottom:20px;}
+.contact-intro p{color:var(--text-secondary);font-size:1.05rem;max-width:650px;margin:12px auto 0;line-height:1.7;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;}
+.contact-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:0;overflow:hidden;transition:all .4s;position:relative;}
+.contact-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px);}
+.card-top{padding:32px 32px 0;display:flex;align-items:center;gap:16px;}
+.card-icon-wrap{width:56px;height:56px;min-width:56px;border-radius:14px;background:rgba(245,158,11,.1);display:flex;align-items:center;justify-content:center;position:relative;}
+.card-icon-wrap::after{content:'';position:absolute;inset:-4px;border-radius:18px;border:2px dashed rgba(245,158,11,.2);animation:spin 15s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.card-icon-wrap i{font-size:1.3rem;color:var(--accent);position:relative;z-index:1;}
+.card-top-text h3{font-size:1.25rem;color:var(--text-primary);margin-bottom:2px;}
+.card-top-text p{font-size:.84rem;color:var(--text-muted);line-height:1.5;}
+.card-body{padding:24px 32px 32px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:.84rem;font-weight:600;color:var(--text-primary);margin-bottom:7px;}
+.form-group label .required{color:var(--error);margin-left:2px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid var(--card-border);background:var(--input-bg);color:var(--text-primary);font-family:'Inter',sans-serif;font-size:.9rem;transition:all .3s;outline:none;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-muted);}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(245,158,11,.12);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.btn-action{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 28px;border-radius:12px;font-weight:600;font-size:.95rem;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:all .35s;position:relative;overflow:hidden;}
+.btn-action::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.15);border-radius:50%;transform:translate(-50%,-50%);transition:width .6s,height .6s;}
+.btn-action:hover::before{width:400px;height:400px;}
+.btn-action span,.btn-action i{position:relative;z-index:1;}
+.btn-message{background:var(--accent);color:#0d1b3e;box-shadow:0 4px 15px rgba(245,158,11,.3);}
+.btn-message:hover{background:#fbbf24;transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,.4);}
+.btn-email{background:var(--primary);color:#fff;box-shadow:0 4px 15px rgba(13,27,62,.3);}
+body.dark-mode .btn-email{background:var(--accent);color:#0d1b3e;box-shadow:0 4px 15px rgba(245,158,11,.3);}
+body.dark-mode .btn-email:hover{background:#fbbf24;}
+.btn-email:hover{background:var(--primary-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(13,27,62,.4);}
+.btn-support{background:transparent;color:var(--accent);border:2px solid var(--accent);box-shadow:none;}
+.btn-support:hover{background:var(--accent);color:#0d1b3e;transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,.3);}
+.email-info{margin-bottom:24px;}
+.email-info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;padding:14px 16px;background:var(--input-bg);border-radius:10px;transition:all .3s;}
+.email-info-item:hover{background:rgba(245,158,11,.06);border-left:3px solid var(--accent);}
+.email-info-item i{color:var(--accent);margin-top:3px;font-size:.9rem;min-width:18px;}
+.email-info-item .info-label{font-size:.78rem;color:var(--text-muted);margin-bottom:2px;}
+.email-info-item .info-value{font-size:.9rem;font-weight:600;color:var(--text-primary);}
+.email-buttons{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.support-section{margin-top:48px;}
+.support-heading{text-align:center;margin-bottom:40px;}
+.support-heading h2{font-size:2rem;margin-bottom:10px;}
+.support-heading p{color:var(--text-secondary);font-size:.95rem;}
+.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.support-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:32px;text-align:center;transition:all .4s;position:relative;overflow:hidden;}
+.support-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:scaleX(0);transition:transform .4s;}
+.support-card:hover::before{transform:scaleX(1);}
+.support-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--accent);}
+.support-card-icon{width:68px;height:68px;border-radius:50%;background:rgba(245,158,11,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:all .4s;}
+.support-card:hover .support-card-icon{background:var(--accent);transform:scale(1.1);}
+.support-card-icon i{font-size:1.5rem;color:var(--accent);transition:color .3s;}
+.support-card:hover .support-card-icon i{color:#0d1b3e;}
+.support-card h4{font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;}
+.support-card p{font-size:.85rem;color:var(--text-secondary);line-height:1.6;margin-bottom:20px;}
+.support-card .btn-action{width:auto;display:inline-flex;padding:11px 24px;font-size:.85rem;}
+.form-success{display:none;text-align:center;padding:40px 20px;}
+.form-success .success-icon{width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;animation:scaleIn .5s ease;}
+@keyframes scaleIn{from{transform:scale(0);}to{transform:scale(1);}}
+.form-success .success-icon i{font-size:2rem;color:var(--success);}
+.form-success h3{font-size:1.3rem;margin-bottom:8px;color:var(--text-primary);}
+.form-success p{color:var(--text-secondary);font-size:.9rem;line-height:1.6;}
+.footer{background:var(--footer-bg);padding:80px 24px 0;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-brand p{color:var(--footer-text);font-size:.9rem;line-height:1.7;margin-top:16px;}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--footer-text);font-size:.95rem;transition:all .3s;}
+.footer-social a:hover{background:var(--accent);color:#0d1b3e;transform:translateY(-3px);}
+.footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
+.footer-col ul{list-style:none;}.footer-col li{margin-bottom:12px;}
+.footer-col a{color:var(--footer-text);font-size:.88rem;transition:color .3s;}.footer-col a:hover{color:var(--accent);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:24px 0;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;}
+.scroll-top{position:fixed;bottom:30px;right:30px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#0d1b3e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 15px rgba(245,158,11,.4);opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s;}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.scroll-top:hover{transform:translateY(-3px);box-shadow:0 6px 25px rgba(245,158,11,.5);}
+.animate-on-scroll{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1);}
+.animate-on-scroll.from-left{transform:translateX(-40px);}.animate-on-scroll.from-right{transform:translateX(40px);}
+.animate-on-scroll.animated{opacity:1;transform:translate(0,0);}
+.delay-1{transition-delay:.1s!important;}.delay-2{transition-delay:.2s!important;}.delay-3{transition-delay:.3s!important;}.delay-4{transition-delay:.4s!important;}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}.support-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.page-hero h1{font-size:2rem;}.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.card-top{padding:24px 24px 0;}.card-body{padding:20px 24px 24px;}.footer-grid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:480px){section{padding:60px 16px;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <!-- <li><a href="case.html">Track Case</a></li> -->
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="services.html">Services</a>
+  <a href="faq.html">FAQ</a>
+  <!-- <a href="case.html">Track Case</a> -->
+  <a href="contact.html" class="active">Contact</a>
+</div>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<section class="page-hero">
+  <h1>Contact Us</h1>
+  <p>We're here to help. Reach out through any channel and our team will respond promptly.</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i> Contact Us</div>
+</section>
+<section style="padding-top:60px;">
+  <div class="container">
+    <div class="contact-intro animate-on-scroll">
+      <h2 style="font-size:2.2rem;">Get In Touch With Us</h2>
+      <p>Whether you need to report a stolen asset, recover a hacked account, or install a tracker — choose how you'd like to reach us below.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card animate-on-scroll from-left">
+        <div class="card-top"><div class="card-icon-wrap"><i class="fas fa-comment-dots"></i></div><div class="card-top-text"><h3>Message Us</h3><p>Fill out the form and we'll get back to you within 1 hour</p></div></div>
+        <div class="card-body">
+          <form id="contactForm" action="https://formsubmit.co/okoliemmanuel188@gmail.com" method="POST" onsubmit="return handleFormSubmit(event)">
+            <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_subject" value="New Contact Form - Rapid Retrievals"><input type="hidden" name="_next" value="">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" name="Full Name" placeholder="John Doe" required></div>
+              <div class="form-group"><label>Email Address <span class="required">*</span></label><input type="email" id="emailAddr" name="Email" placeholder="john@example.com" required></div>
+            </div>
+            <div class="form-group"><label>Service Needed <span class="required">*</span></label>
+              <select id="serviceType" name="Service Needed" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Vehicle Recovery (Car, Bike, Scooter, Moped)</option>
+                <option>Trailer / Caravan Recovery</option>
+                <option>Hacked Account Recovery</option>
+                <option>GPS Tracker Installation</option>
+                <option>Digital Security Audit</option>
+                <option>Other / General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Subject <span class="required">*</span></label><input type="text" id="subject" name="Subject" placeholder="Brief description of your issue" required></div>
+            <div class="form-group"><label>Details <span class="required">*</span></label><textarea id="message" name="Details" placeholder="Please provide as many details as possible..." required></textarea></div>
+            <button type="submit" class="btn-action btn-message"><i class="fas fa-paper-plane"></i><span>Send Message</span></button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. Our team has received your message and will respond within 1 hour.</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card animate-on-scroll from-right">
+        <div class="card-top"><div class="card-icon-wrap"><i class="fas fa-envelope-open-text"></i></div><div class="card-top-text"><h3>Email Us</h3><p>Prefer email? Send us a direct email anytime</p></div></div>
+        <div class="card-body">
+          <div class="email-info">
+            <div class="email-info-item"><i class="fas fa-envelope"></i><div><div class="info-label">General Inquiries</div><div class="info-value">rapidretrievals@outlook.com</div></div></div>
+            <div class="email-info-item"><i class="fas fa-car-burst"></i><div><div class="info-label">Vehicle Recovery Reports</div><div class="info-value">rapidretrievals@outlook.com</div></div></div>
+            <div class="email-info-item"><i class="fas fa-user-shield"></i><div><div class="info-label">Account Recovery (Hacked Accounts)</div><div class="info-value">rapidretrievals@outlook.com</div></div></div>
+            <div class="email-info-item"><i class="fas fa-location-dot"></i><div><div class="info-label">Tracker Installation Bookings</div><div class="info-value">rapidretrievals@outlook.com</div></div></div>
+            <div class="email-info-item"><i class="fas fa-clock"></i><div><div class="info-label">Response Time</div><div class="info-value">Within 1 hour (24/7)</div></div></div>
+          </div>
+          <div class="email-buttons">
+            <a href="mailto:rapidretrievals@outlook.com?subject=General%20Inquiry%20-%20Rapid%20Retrievals&body=Hello%20Rapid%20Retrievals%2C%0A%0AMy%20name%20is%20__________%20and%20I%20would%20like%20to%20inquire%20about%3A%0A%0A%5BPlease%20describe%20your%20issue%20here%5D%0A%0AThank%20you." target="_blank" class="btn-action btn-email"><i class="fas fa-at"></i><span>Email General Support</span></a>
+            <a href="mailto:rapidretrievals@outlook.com?subject=Vehicle%20Recovery%20Report%20-%20Rapid%20Retrievals&body=Hello%20Rapid%20Retrievals%2C%0A%0AI%20am%20reporting%20a%20stolen%20vehicle.%0A%0AVehicle%20Type%3A%20__________%0AMake%20%26%20Model%3A%20__________%0AColor%3A%20__________%0ALicense%20Plate%3A%20__________%0ADate%20Stolen%3A%20__________%0ALocation%20Last%20Seen%3A%20__________%0APolice%20Report%20Number%3A%20__________%0A%0AThank%20you." target="_blank" class="btn-action btn-email"><i class="fas fa-car-side"></i><span>Report Stolen Vehicle</span></a>
+            <a href="mailto:rapidretrievals@outlook.com?subject=Hacked%20Account%20Recovery%20-%20Rapid%20Retrievals&body=Hello%20Rapid%20Retrievals%2C%0A%0AI%20need%20help%20recovering%20my%20hacked%20account.%0A%0APlatform%3A%20__________%0AUsername%20or%20Profile%20Link%3A%20__________%0ADate%20Hacked%3A%20__________%0AWhat%20happened%3A%20__________%0A%0AThank%20you." target="_blank" class="btn-action btn-email"><i class="fas fa-user-shield"></i><span>Report Hacked Account</span></a>
+            <a href="mailto:rapidretrievals@outlook.com?subject=Tracker%20Installation%20Booking%20-%20Rapid%20Retrievals&body=Hello%20Rapid%20Retrievals%2C%0A%0AI%20would%20like%20to%20book%20a%20GPS%20tracker%20installation.%0A%0AVehicle%20Type%3A%20__________%0AMake%20%26%20Model%3A%20__________%0APreferred%20Date%3A%20__________%0ALocation%3A%20__________%0A%0AThank%20you." target="_blank" class="btn-action btn-email"><i class="fas fa-location-dot"></i><span>Book Tracker Installation</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="support-section">
+      <div class="support-heading animate-on-scroll">
+        <div class="section-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:6px 16px;border-radius:50px;color:var(--accent);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;"><i class="fas fa-headset"></i> Support Channels</div>
+        <h2>Other Ways to Get Help</h2>
+        <p>Choose the support method that works best for you — we're available around the clock.</p>
+      </div>
+      <div class="support-grid">
+        <div class="support-card animate-on-scroll"><div class="support-card-icon"><i class="fas fa-comments"></i></div><h4>Live Chat Support</h4><p>Chat directly with a support agent in real-time. Fastest way to get immediate help.</p><a href="#" class="btn-action btn-support" onclick="if(typeof Tawk_API!=='undefined'){Tawk_API.toggle();}return false;"><i class="fas fa-message"></i><span>Start Live Chat</span></a></div>
+        <div class="support-card animate-on-scroll delay-1"><div class="support-card-icon"><i class="fas fa-ticket"></i></div><h4>Submit a Support Ticket</h4><p>Create a detailed support ticket for complex cases. Track progress via email.</p><a href="mailto:rapidretrievals@outlook.com?subject=Support%20Ticket%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20open%20a%20support%20ticket%20for%3A%0A%0A%5BDescribe%20your%20issue%5D%0A%0AThank%20you." target="_blank" class="btn-action btn-support"><i class="fas fa-plus"></i><span>Open Ticket</span></a></div>
+        <div class="support-card animate-on-scroll delay-2"><div class="support-card-icon"><i class="fas fa-circle-question"></i></div><h4>Help Center / FAQ</h4><p>Browse our comprehensive FAQ for instant answers to common questions.</p><a href="faq.html" class="btn-action btn-support"><i class="fas fa-book-open"></i><span>View FAQ</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="color:#fff;"><img src="new_rapid_logo.png" alt="Rapid Retrievals"></a>
+      <p>Your trusted partner in tracking and recovering stolen vehicles, digital accounts, and protecting your assets with advanced technology.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/18JBDiEGvh/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/12763561874" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:rapidretrievals@outlook.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Vehicle Recovery</a></li><li><a href="services.html">Account Recovery</a></li><li><a href="services.html">Tracker Installation</a></li><li><a href="services.html">Bike Recovery</a></li><li><a href="services.html">Caravan Recovery</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Our Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="case.html">Track Case</a></li><li><a href="contact.html">Email Support</a></li><li><a href="faq.html">Help Center</a></li><li><a href="contact.html">Live Chat</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Rapid Retrievals. All rights reserved. | Designed with <i class="fas fa-heart" style="color:var(--accent);"></i> for your security.</p></div>
+</footer>
+<button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ca763ad746a31c382e0ca3/1jkvdrmf2';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<script>
+ $(document).ready(function(){
+  window.handleFormSubmit=function(event){
+    event.preventDefault();var form=document.getElementById('contactForm');
+    var requiredFields=form.querySelectorAll('[required]');var isValid=true;
+    requiredFields.forEach(function(field){if(!field.value.trim()){isValid=false;$(field).css('border-color','var(--error)');$(field).css('animation','shake .4s ease');var $el=$(field);setTimeout(function(){$el.css({'border-color':'','animation':''});},600);}});
+    if(!isValid)return false;
+    var $btn=$(form).find('.btn-message');var originalHTML=$btn.html();
+    $btn.html('<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>');$btn.css('pointer-events','none');
+    $.ajax({url:form.action,method:'POST',data:$(form).serialize(),
+      success:function(){$('#contactForm').fadeOut(300,function(){$('#formSuccess').fadeIn(400);form.reset();});$btn.html(originalHTML).css('pointer-events','');},
+      error:function(){$('#contactForm').fadeOut(300,function(){$('#formSuccess').fadeIn(400);form.reset();});$btn.html(originalHTML).css('pointer-events','');}
+    });return false;
+  };
+  $('input,select,textarea').on('focus',function(){$(this).css('border-color','');});
+  $('<style>@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}</style>').appendTo('head');
+  $(window).on('scroll',function(){if($(this).scrollTop()>50)$('#navbar').addClass('scrolled');else $('#navbar').removeClass('scrolled');if($(this).scrollTop()>500)$('#scrollTop').addClass('visible');else $('#scrollTop').removeClass('visible');});
+  $('#scrollTop').on('click',function(){$('html,body').animate({scrollTop:0},600);});
+  function checkAnimations(){$('.animate-on-scroll').each(function(){if($(this).offset().top<$(window).scrollTop()+$(window).height()-60)$(this).addClass('animated');});}
+  $(window).on('scroll',checkAnimations);checkAnimations();
+  if(localStorage.getItem('darkMode')==='true'){$('body').addClass('dark-mode');$('#themeToggle i').removeClass('fa-moon').addClass('fa-sun');}
+  $('#themeToggle').on('click',function(){$('body').toggleClass('dark-mode');$(this).find('i').toggleClass('fa-moon fa-sun');localStorage.setItem('darkMode',$('body').hasClass('dark-mode'));});
+  $('#hamburger').on('click',function(){$(this).toggleClass('active');$('#mobileMenu').toggleClass('active');$('body').css('overflow',$('#mobileMenu').hasClass('active')?'hidden':'');});
+  $('#mobileMenu a').on('click',function(){$('#hamburger').removeClass('active');$('#mobileMenu').removeClass('active');$('body').css('overflow','');});
+});
+</script>
+</body>
+</html>

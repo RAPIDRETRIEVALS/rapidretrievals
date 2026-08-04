@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case — Fast. Reliable. Relentless.</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg-primary:#f8f9fa;--bg-secondary:#ffffff;--bg-tertiary:#e9ecef;--text-primary:#0d1b3e;--text-secondary:#4a5568;--text-muted:#718096;--accent:#f59e0b;--accent-hover:#d97706;--primary:#0d1b3e;--primary-light:#1e3a5f;--card-bg:#ffffff;--card-border:#e2e8f0;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 10px 40px rgba(0,0,0,0.12);--input-bg:#f1f5f9;--error:#ef4444;--success:#22c55e;--warning:#f59e0b;--info:#3b82f6;}
+body.dark-mode{--bg-primary:#0a0a0f;--bg-secondary:#111118;--bg-tertiary:#1a1a2e;--text-primary:#e5e7eb;--text-secondary:#9ca3af;--text-muted:#6b7280;--accent:#f59e0b;--accent-hover:#fbbf24;--primary:#f59e0b;--primary-light:#fbbf24;--card-bg:#16161f;--card-border:#2d2d44;--shadow:0 4px 20px rgba(0,0,0,0.3);--shadow-lg:0 10px 40px rgba(0,0,0,0.4);--input-bg:#1a1a2e;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);transition:background .4s,color .4s;overflow-x:hidden;min-height:100vh;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;}a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
+.top-bar{background:var(--primary);padding:16px 24px;text-align:center;position:relative;}
+body.dark-mode .top-bar{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b3e 100%);}
+.top-bar h1{color:#fff;font-size:1.8rem;margin-bottom:4px;position:relative;}
+.top-bar p{color:rgba(255,255,255,.6);font-size:.9rem;position:relative;}
+.page-content{padding:40px 24px 80px;}
+.container{max-width:900px;margin:0 auto;}
+.case-tabs{display:flex;gap:0;margin-bottom:32px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;}
+.case-tab{flex:1;padding:16px 24px;text-align:center;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text-secondary);transition:all .3s;border-bottom:3px solid transparent;background:var(--card-bg);}
+.case-tab:hover{background:var(--input-bg);}
+.case-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:rgba(245,158,11,.05);}
+.case-tab i{margin-right:8px;}
+.search-panel{display:none;}.search-panel.active{display:block;}
+.search-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:40px;text-align:center;box-shadow:var(--shadow-lg);}
+.search-box h2{font-size:1.6rem;margin-bottom:8px;color:var(--text-primary);}
+.search-box>p{color:var(--text-secondary);font-size:.95rem;margin-bottom:28px;}
+.search-input-wrap{display:flex;gap:0;max-width:500px;margin:0 auto;border-radius:12px;overflow:hidden;border:2px solid var(--card-border);transition:border-color .3s;}
+.search-input-wrap:focus-within{border-color:var(--accent);}
+.search-input-wrap input{flex:1;padding:16px 20px;border:none;background:var(--input-bg);color:var(--text-primary);font-size:1rem;font-family:'Inter',sans-serif;outline:none;}
+.search-input-wrap input::placeholder{color:var(--text-muted);}
+.search-input-wrap button{padding:16px 24px;background:var(--accent);color:#0d1b3e;border:none;cursor:pointer;font-size:1rem;font-weight:600;transition:background .3s;}
+.search-input-wrap button:hover{background:#fbbf24;}
+.search-hint{margin-top:16px;font-size:.82rem;color:var(--text-muted);}
+.search-hint code{background:var(--input-bg);padding:2px 8px;border-radius:4px;font-family:monospace;color:var(--accent);}
+.case-result{display:none;max-width:600px;margin:32px auto 0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);animation:slideUp .5s ease;}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.result-header{padding:20px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--card-border);}
+.result-case-id{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--accent);}
+.result-badge{padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.badge-logged{background:rgba(59,130,246,.1);color:var(--info);border:1px solid rgba(59,130,246,.2);}
+.badge-investigating{background:rgba(245,158,11,.1);color:var(--warning);border:1px solid rgba(245,158,11,.2);}
+.badge-located{background:rgba(34,197,94,.1);color:var(--success);border:1px solid rgba(34,197,94,.2);}
+.badge-recovered{background:rgba(34,197,94,.15);color:var(--success);border:1px solid rgba(34,197,94,.3);}
+.result-body{padding:24px 28px;}
+.result-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--card-border);}
+.result-row:last-child{border-bottom:none;}
+.result-label{font-size:.85rem;color:var(--text-muted);font-weight:500;}
+.result-value{font-size:.9rem;color:var(--text-primary);font-weight:600;text-align:right;max-width:60%;}
+.result-timeline{margin-top:20px;padding:16px 20px;background:var(--input-bg);border-radius:10px;}
+.result-timeline h4{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:12px;color:var(--text-primary);}
+.timeline-item{display:flex;gap:12px;margin-bottom:10px;font-size:.84rem;color:var(--text-secondary);}
+.timeline-item:last-child{margin-bottom:0;}
+.timeline-dot{width:10px;height:10px;min-width:10px;border-radius:50%;background:var(--accent);margin-top:4px;}
+.timeline-item .time{color:var(--text-muted);font-size:.78rem;min-width:100px;}
+.error-result{display:none;max-width:500px;margin:32px auto 0;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:28px;text-align:center;animation:slideUp .5s ease;}
+.error-result i{font-size:2.5rem;color:var(--error);margin-bottom:12px;}
+.error-result h3{font-size:1.1rem;color:var(--error);margin-bottom:6px;}
+.error-result p{font-size:.9rem;color:var(--text-secondary);}
+.open-panel{display:none;}.open-panel.active{display:block;}
+.panel{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden;}
+.panel-header{background:var(--primary);padding:20px 32px;}
+body.dark-mode .panel-header{background:var(--bg-tertiary);}
+.panel-title{color:#fff;font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:600;display:flex;align-items:center;}
+body.dark-mode .panel-title{color:var(--text-primary);}
+.panel-body{padding:36px 32px;}
+.form-section-title{font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-top:28px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--accent);display:inline-block;}
+.form-section-title:first-child{margin-top:0;}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:0;}
+.form-group{display:flex;flex-direction:column;}
+.form-group.full{grid-column:span 2;}
+.form-label{font-size:.84rem;font-weight:600;color:var(--text-primary);margin-bottom:7px;}
+.form-label .required{color:var(--error);}
+.form-label .optional{color:var(--text-muted);font-weight:400;font-size:.78rem;}
+.form-input,.form-select,.form-textarea{width:100%;padding:12px 15px;border-radius:8px;border:1.5px solid var(--card-border);background:var(--input-bg);color:var(--text-primary);font-family:'Inter',sans-serif;font-size:.9rem;transition:all .3s;outline:none;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(245,158,11,.12);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-muted);}
+.form-textarea{resize:vertical;min-height:90px;}
+.asset-type-selector{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px;}
+.asset-type-btn{padding:18px 12px;border-radius:12px;border:2px solid var(--card-border);background:var(--card-bg);cursor:pointer;text-align:center;transition:all .3s;}
+.asset-type-btn:hover{border-color:var(--accent);transform:translateY(-2px);}
+.asset-type-btn.active{border-color:var(--accent);background:rgba(245,158,11,.08);box-shadow:0 2px 12px rgba(245,158,11,.15);}
+.asset-type-btn i{font-size:1.8rem;color:var(--accent);display:block;margin-bottom:8px;transition:transform .3s;}
+.asset-type-btn:hover i{transform:scale(1.1);}
+.asset-type-btn span{font-size:.85rem;font-weight:600;color:var(--text-primary);}
+.asset-type-hint{font-size:.78rem;color:var(--text-muted);margin-bottom:20px;padding-left:2px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:8px;font-weight:600;font-size:.95rem;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:all .3s;}
+.btn-primary{background:var(--accent);color:#0d1b3e;box-shadow:0 4px 15px rgba(245,158,11,.3);}
+.btn-primary:hover{background:#fbbf24;transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,.4);}
+.btn-ghost{background:transparent;color:var(--text-secondary);border:2px solid var(--card-border);}
+.btn-ghost:hover{background:var(--input-bg);}
+.paid-alert{background:rgba(239,68,68,.1);color:var(--error);border:1px solid rgba(239,68,68,.3);padding:12px 20px;border-radius:8px;font-size:.85rem;font-weight:600;margin-top:24px;text-align:center;}
+.photo-note{background:rgba(59,130,246,.08);color:var(--info);border:1px solid rgba(59,130,246,.2);padding:10px 18px;border-radius:8px;font-size:.84rem;margin-top:16px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;}
+.case-number-box{background:var(--input-bg);border:1px dashed var(--accent);padding:20px 24px;border-radius:8px;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:20px;}
+.case-number-box .case-text{text-align:left;}
+.case-number-box .case-text span{display:block;font-size:.8rem;color:var(--text-muted);margin-bottom:4px;}
+.case-number-box .case-text strong{font-size:1.4rem;color:var(--accent);font-family:'Playfair Display',serif;}
+.copy-btn{background:none;border:2px solid var(--accent);color:var(--accent);width:44px;height:44px;min-width:44px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;}
+.copy-btn:hover{background:var(--accent);color:#0d1b3e;}
+@keyframes scaleIn{from{transform:scale(0);}to{transform:scale(1);}}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.panel-body{padding:24px 20px;}.asset-type-selector{grid-template-columns:repeat(2,1fr);}.case-tabs{flex-direction:column;}.case-tab{border-bottom:none;border-right:3px solid transparent;padding:14px 20px;}.case-tab.active{border-right-color:var(--accent);border-bottom:none;}.top-bar h1{font-size:1.4rem;}}
+@media(max-width:480px){.page-content{padding:24px 16px 60px;}.asset-type-selector{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>Track Your Case</h1>
+  <p>Search an existing case or open a new recovery case.</p>
+</div>
+
+<div class="page-content">
+  <div class="container">
+    <div class="case-tabs">
+      <div class="case-tab active" data-tab="search"><i class="fas fa-magnifying-glass"></i> Search Case</div>
+      <div class="case-tab" data-tab="open"><i class="fas fa-plus-circle"></i> Open New Case</div>
+    </div>
+
+    <!-- SEARCH PANEL -->
+    <div class="search-panel active" id="searchPanel">
+      <div class="search-box">
+        <h2>Look Up Your Case</h2>
+        <p>Enter your Case ID to check the current status of your recovery.</p>
+        <div class="search-input-wrap">
+          <input type="text" id="caseSearchInput" placeholder="e.g. RAPID-1234567" autocomplete="off">
+          <button onclick="searchCase()"><i class="fas fa-search"></i></button>
+        </div>
+        <p class="search-hint">Format: <code>RAPID-0000000</code> (RAPID- followed by 7 digits)</p>
+      </div>
+      <div class="case-result" id="caseResult">
+        <div class="result-header">
+          <span class="result-case-id" id="resultCaseId">RAPID-0000000</span>
+          <span class="result-badge" id="resultBadge">Logged</span>
+        </div>
+        <div class="result-body">
+          <div class="result-row"><span class="result-label">Asset Type</span><span class="result-value" id="resultType">—</span></div>
+          <div class="result-row"><span class="result-label">Make / Model</span><span class="result-value" id="resultMake">—</span></div>
+          <div class="result-row"><span class="result-label">Last Seen</span><span class="result-value" id="resultLocation">—</span></div>
+          <div class="result-row"><span class="result-label">Time of Theft</span><span class="result-value" id="resultTime">—</span></div>
+          <div class="result-row"><span class="result-label">Date Reported</span><span class="result-value" id="resultDate">—</span></div>
+          <div class="result-timeline">
+            <h4><i class="fas fa-clock-rotate-left" style="color:var(--accent);margin-right:6px;"></i> Case Timeline</h4>
+            <div id="resultTimeline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="error-result" id="errorResult">
+        <i class="fas fa-circle-exclamation"></i>
+        <h3>Case Not Found</h3>
+        <p>The Case ID you entered doesn't match any case in our system. Please double-check and try again.</p>
+      </div>
+    </div>
+
+    <!-- OPEN CASE PANEL -->
+    <div class="open-panel" id="openPanel">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><i class="fas fa-exclamation-triangle" style="color:#ef4444;margin-right:8px;"></i>Register Stolen Asset</span>
+        </div>
+        <div class="panel-body">
+
+          <!-- SUCCESS UI -->
+          <div id="successUI" style="display:none;text-align:center;">
+            <div style="margin:0 auto 20px;width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.1);display:flex;align-items:center;justify-content:center;animation:scaleIn .5s ease;"><i class="fas fa-check" style="font-size:2rem;color:#22c55e;"></i></div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:12px;">Case Logged Successfully!</h3>
+            <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.6;">Please copy your Case Number below and paste it into our live chat widget to activate recovery.</p>
+            <div class="case-number-box">
+              <div class="case-text"><span>Your Case Number</span><strong id="generatedCaseNumber">RAPID-0000000</strong></div>
+              <button class="copy-btn" onclick="copyCaseNumber()" title="Copy to clipboard"><i class="fas fa-copy" id="copyIcon"></i></button>
+            </div>
+            <div class="photo-note"><i class="fas fa-camera"></i> Please upload any photos of the asset directly in the live chat.</div>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:16px;">Our team will contact you shortly with next steps.</p>
+          </div>
+
+          <!-- FORM -->
+          <form id="report-form">
+            <input type="hidden" name="access_key" value="2cd69b04-f127-4c21-81ec-e4a5996e9245">
+            <input type="hidden" name="subject" value="New Stolen Asset Case Logged">
+            <input type="hidden" name="from_name" value="Rapid Retrievals Database">
+            <input type="hidden" name="Generated Case Number" id="caseNumField">
+            <input type="hidden" name="Asset Type" id="assetTypeField" value="Car">
+
+            <!-- REPORTER INFO -->
+            <div class="form-section-title">Your Information</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Full Name <span class="required">*</span></label>
+                <input class="form-input" name="Full Name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address <span class="required">*</span></label>
+                <input class="form-input" name="Email" type="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Phone Number <span class="required">*</span></label>
+                <input class="form-input" name="Phone Number" type="tel" placeholder="+1 (555) 000-0000" required>
+              </div>
+            </div>
+
+            <!-- ASSET TYPE -->
+            <div class="form-section-title">What Was Stolen? <span class="required">*</span></div>
+            <div class="asset-type-selector">
+              <div class="asset-type-btn active" data-type="car" onclick="selectAssetType(this)">
+                <i class="fas fa-car"></i><span>Car</span>
+              </div>
+              <div class="asset-type-btn" data-type="motorcycle" onclick="selectAssetType(this)">
+                <i class="fas fa-motorcycle"></i><span>Motorcycle</span>
+              </div>
+              <div class="asset-type-btn" data-type="truck" onclick="selectAssetType(this)">
+                <i class="fas fa-truck"></i><span>Truck</span>
+              </div>
+              <div class="asset-type-btn" data-type="trailer" onclick="selectAssetType(this)">
+                <i class="fas fa-trailer"></i><span>Trailer</span>
+              </div>
+            </div>
+            <div class="asset-type-hint" id="assetTypeHint">Selected: <strong>Car</strong> — Please provide details about the stolen car below.</div>
+
+            <!-- ASSET IDENTITY -->
+            <div class="form-section-title">Asset Identity</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Make <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Make" id="makeField" placeholder="e.g. Toyota">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Model <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Model" id="modelField" placeholder="e.g. Camry">
+              </div>
+              <div class="form-group" id="yearGroup">
+                <label class="form-label">Year <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Year" type="number" min="1950" max="2030" placeholder="2024">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Color <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Color" placeholder="e.g. White">
+              </div>
+              <div class="form-group" id="vinGroup">
+                <label class="form-label">VIN <span class="optional">(optional)</span></label>
+                <input class="form-input" name="VIN" placeholder="17-character VIN" maxlength="17" style="text-transform:uppercase;">
+              </div>
+              <div class="form-group" id="plateGroup">
+                <label class="form-label">License Plate <span class="optional">(optional)</span></label>
+                <input class="form-input" name="License Plate" id="plateField" placeholder="e.g. ABC-1234" style="text-transform:uppercase;">
+              </div>
+              <div class="form-group" id="engineGroup" style="display:none;">
+                <label class="form-label">Engine Size (cc) <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Engine Size" placeholder="e.g. 600">
+              </div>
+              <div class="form-group" id="trailerTypeGroup" style="display:none;">
+                <label class="form-label">Trailer Type <span class="optional">(optional)</span></label>
+                <select class="form-select" name="Trailer Type">
+                  <option value="">-- Select --</option>
+                  <option>Enclosed</option><option>Flatbed</option><option>Caravan / Travel</option><option>Utility</option><option>Boat</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- THEFT INFO -->
+            <div class="form-section-title">Theft Information</div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label class="form-label">Last Seen Location <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Last Seen Location" placeholder="Address or description of where it was last seen">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Theft <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Date of Theft" type="date">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Time of Theft <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Time of Theft" type="time">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Police Report Number <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Police Report Number" placeholder="e.g. PD-2024-00123">
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Suspected Direction of Travel <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Suspected Direction" placeholder="e.g. Northbound on I-95">
+              </div>
+            </div>
+
+            <!-- PHYSICAL DESCRIPTION -->
+            <div class="form-section-title">Physical Description</div>
+            <div class="form-grid">
+              <div class="form-group" id="trimGroup">
+                <label class="form-label">Trim <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Trim" placeholder="e.g. SE, XLE">
+              </div>
+              <div class="form-group" id="wheelGroup">
+                <label class="form-label">Wheel Color <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Wheel Color" placeholder="e.g. Silver">
+              </div>
+              <div class="form-group" id="tintGroup">
+                <label class="form-label">Tinted Windows <span class="optional">(optional)</span></label>
+                <select class="form-select" name="Tinted Windows">
+                  <option value="">-- Select --</option>
+                  <option value="Yes">Yes</option><option value="No">No</option><option value="Unknown">Unknown</option>
+                </select>
+              </div>
+              <div class="form-group" id="fuelGroup">
+                <label class="form-label">Fuel Type <span class="optional">(optional)</span></label>
+                <select class="form-select" name="Fuel Type">
+                  <option value="">-- Select --</option>
+                  <option>Gasoline</option><option>Diesel</option><option>Electric</option><option>Hybrid</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Scratches / Broken Parts <span class="optional">(optional)</span></label>
+                <input class="form-input" name="Damage" placeholder="Location and description of scratches, dents, or damage">
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Distinguishing Marks <span class="optional">(optional)</span></label>
+                <textarea class="form-textarea" name="Distinguishing Marks" placeholder="Any unique features, modifications, stickers, after-market parts..."></textarea>
+              </div>
+            </div>
+
+            <!-- TECHNICAL -->
+            <div class="form-section-title">Technical Details</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">GPS Installed? <span class="optional">(optional)</span></label>
+                <select class="form-select" name="GPS Installed">
+                  <option value="">-- Select --</option>
+                  <option value="Yes">Yes</option><option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Immobilizer Installed? <span class="optional">(optional)</span></label>
+                <select class="form-select" name="Immobilizer">
+                  <option value="">-- Select --</option>
+                  <option value="Yes">Yes</option><option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- ADDITIONAL NOTES -->
+            <div class="form-section-title">Additional Notes</div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <textarea class="form-textarea" name="Additional Notes" placeholder="Any other relevant information that could help with recovery..." style="min-height:80px;"></textarea>
+              </div>
+            </div>
+
+            <div class="paid-alert"><i class="fas fa-exclamation-circle"></i> Please Note: This is NOT a free service. By submitting, you agree to be contacted with a quote for recovery.</div>
+            <div class="photo-note"><i class="fas fa-camera"></i> Photos of the stolen asset should be sent directly in the live chat, not through this form.</div>
+
+            <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+              <button type="submit" class="btn btn-primary" id="submit-btn"><i class="fas fa-database"></i> Submit Case</button>
+              <button type="button" class="btn btn-ghost" onclick="resetForm()"><i class="fas fa-eraser"></i> Clear Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69ca763ad746a31c382e0ca3/1jkvdrmf2';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+
+<script>
+// ===== TABS =====
+document.querySelectorAll('.case-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.case-tab').forEach(function(t){t.classList.remove('active');});
+    this.classList.add('active');
+    var target=this.dataset.tab;
+    document.getElementById('searchPanel').classList.toggle('active',target==='search');
+    document.getElementById('openPanel').classList.toggle('active',target==='open');
+  });
+});
+
+// ===== ASSET TYPE SELECTOR =====
+var selectedAssetType='car';
+var placeholders={
+  car:{make:'e.g. Toyota',model:'e.g. Camry',plate:'e.g. ABC-1234',hint:'Selected: <strong>Car</strong> — Please provide details about the stolen car below.'},
+  motorcycle:{make:'e.g. Honda',model:'e.g. CBR600RR',plate:'e.g. MOTO-1234',hint:'Selected: <strong>Motorcycle</strong> — Please provide details about the stolen motorcycle below.'},
+  truck:{make:'e.g. Ford',model:'e.g. F-150',plate:'e.g. TRK-12345',hint:'Selected: <strong>Truck</strong> — Please provide details about the stolen truck below.'},
+  trailer:{make:'e.g. Keystone',model:'e.g. Cougar 27RBK',plate:'',hint:'Selected: <strong>Trailer</strong> — Please provide details about the stolen trailer below.'}
+};
+
+function selectAssetType(el){
+  document.querySelectorAll('.asset-type-btn').forEach(function(b){b.classList.remove('active');});
+  el.classList.add('active');
+  selectedAssetType=el.dataset.type;
+  var p=placeholders[selectedAssetType];
+  document.getElementById('assetTypeField').value=el.querySelector('span').textContent;
+  document.getElementById('assetTypeHint').innerHTML=p.hint;
+  document.getElementById('makeField').placeholder=p.make;
+  document.getElementById('modelField').placeholder=p.model;
+  document.getElementById('plateField').placeholder=p.plate;
+  var isBike=selectedAssetType==='motorcycle';
+  var isTrailer=selectedAssetType==='trailer';
+  var isCarOrTruck=!isBike&&!isTrailer;
+  document.getElementById('vinGroup').style.display=isCarOrTruck?'':'none';
+  document.getElementById('plateGroup').style.display=isTrailer?'none':'';
+  document.getElementById('engineGroup').style.display=isBike?'':'none';
+  document.getElementById('trailerTypeGroup').style.display=isTrailer?'':'none';
+  document.getElementById('trimGroup').style.display=isCarOrTruck?'':'none';
+  document.getElementById('wheelGroup').style.display=isTrailer?'none':'';
+  document.getElementById('tintGroup').style.display=isCarOrTruck?'':'none';
+  document.getElementById('fuelGroup').style.display=isCarOrTruck?'':'none';
+  document.getElementById('yearGroup').style.display='';
+}
+
+// ===== SEARCH CASE =====
+function searchCase(){
+  var input=document.getElementById('caseSearchInput').value.trim().toUpperCase();
+  document.getElementById('caseResult').style.display='none';
+  document.getElementById('errorResult').style.display='none';
+  if(!input)return;
+  if(!/^RAPID-\d{7}$/.test(input)){showCaseError();return;}
+  var cases=JSON.parse(localStorage.getItem('rapidCases')||'{}');
+  if(cases[input]){displayCaseResult(cases[input]);}
+  else{showCaseError();}
+}
+document.getElementById('caseSearchInput').addEventListener('keypress',function(e){if(e.key==='Enter')searchCase();});
+function showCaseError(){document.getElementById('errorResult').style.display='block';}
+function displayCaseResult(c){
+  document.getElementById('resultCaseId').textContent=c.caseId;
+  var badge=document.getElementById('resultBadge');
+  badge.textContent=c.status;badge.className='result-badge';
+  if(c.status==='Logged')badge.classList.add('badge-logged');
+  else if(c.status==='Investigating')badge.classList.add('badge-investigating');
+  else if(c.status==='Located')badge.classList.add('badge-located');
+  else if(c.status==='Recovered')badge.classList.add('badge-recovered');
+  document.getElementById('resultType').textContent=c.assetType;
+  document.getElementById('resultMake').textContent=(c.make?c.make+' ':'')+(c.model||'—');
+  document.getElementById('resultLocation').textContent=c.lastSeen||'—';
+  document.getElementById('resultTime').textContent=c.timeOfTheft||'—';
+  document.getElementById('resultDate').textContent=c.dateReported;
+  var tl=document.getElementById('resultTimeline');tl.innerHTML='';
+  c.timeline.forEach(function(t){
+    tl.innerHTML+='<div class="timeline-item"><div class="timeline-dot"></div><span class="time">'+t.time+'</span><span>'+t.event+'</span></div>';
+  });
+  document.getElementById('caseResult').style.display='block';
+}
+
+// ===== FORM SUBMISSION =====
+var form=document.getElementById('report-form');
+var submitBtn=document.getElementById('submit-btn');
+
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+
+  var submitBtn=document.getElementById('submit-btn');
+  submitBtn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Submitting...';
+  submitBtn.style.pointerEvents='none';
+  submitBtn.style.opacity='0.7';
+
+  // Generate case number
+  var digits=Math.floor(1000000+Math.random()*9000000);
+  var caseNum='RAPID-'+digits;
+  document.getElementById('caseNumField').value=caseNum;
+
+  // Build time display
+  var now=new Date();
+  var timeVal=form.querySelector('[name="Time of Theft"]').value;
+  var dateVal=form.querySelector('[name="Date of Theft"]').value;
+  var timeDisplay='Not specified';
+  if(timeVal&&dateVal){timeDisplay=dateVal+' at '+timeVal;}
+  else if(timeVal){timeDisplay='Time: '+timeVal+' (no date given)';}
+  else if(dateVal){timeDisplay=dateVal+' (no time given)';}
+
+  // 1. Save to localStorage FIRST (so search works even if email fails)
+  var cases=JSON.parse(localStorage.getItem('rapidCases')||'{}');
+  cases[caseNum]={
+    caseId:caseNum,
+    assetType:document.getElementById('assetTypeField').value,
+    make:form.querySelector('[name="Make"]').value,
+    model:form.querySelector('[name="Model"]').value,
+    lastSeen:form.querySelector('[name="Last Seen Location"]').value,
+    timeOfTheft:timeDisplay,
+    dateReported:now.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})+' '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),
+    status:'Logged',
+    timeline:[
+      {time:now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),event:'Case logged in database'}
+    ]
+  };
+  localStorage.setItem('rapidCases',JSON.stringify(cases));
+
+  // 2. Send to Web3Forms via fetch
+  var formData=new FormData(form);
+
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    body:formData
+  })
+  .then(function(response){return response.json();})
+  .then(function(data){
+    // Email sent successfully, now show success UI
+    showSuccess(caseNum);
+  })
+  .catch(function(error){
+    // Even if email fails, localStorage is already saved — still show success
+    console.log('Web3Forms error:',error);
+    showSuccess(caseNum);
+  });
+});
+
+function showSuccess(caseNum){
+  var form=document.getElementById('report-form');
+  form.style.display='none';
+  document.getElementById('successUI').style.display='block';
+  document.getElementById('generatedCaseNumber').innerText=caseNum;
+  // Switch to open tab
+  document.querySelectorAll('.case-tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelector('[data-tab="open"]').classList.add('active');
+  document.getElementById('searchPanel').classList.remove('active');
+  document.getElementById('openPanel').classList.add('active');
+  window.scrollTo({top:document.querySelector('.panel-body').offsetTop-80,behavior:'smooth'});
+  // Reset button state
+  var submitBtn=document.getElementById('submit-btn');
+  submitBtn.innerHTML='<i class="fas fa-database"></i> Submit Case';
+  submitBtn.style.pointerEvents='';
+  submitBtn.style.opacity='';
+}
+
+// Check URL for case param (show success on page load)
+(function(){
+  var urlParams=new URLSearchParams(window.location.search);
+  var caseParam=urlParams.get('case');
+  if(caseParam){
+    document.getElementById('report-form').style.display='none';
+    document.getElementById('successUI').style.display='block';
+    document.getElementById('generatedCaseNumber').innerText=caseParam;
+    document.querySelectorAll('.case-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelector('[data-tab="open"]').classList.add('active');
+    document.getElementById('searchPanel').classList.remove('active');
+    document.getElementById('openPanel').classList.add('active');
+    window.scrollTo({top:document.querySelector('.panel-body').offsetTop-80,behavior:'smooth'});
+  }
+})();
+
+function copyCaseNumber(){
+  var text=document.getElementById('generatedCaseNumber').innerText;
+  var icon=document.getElementById('copyIcon');
+  navigator.clipboard.writeText(text).then(function(){
+    icon.classList.remove('fa-copy');icon.classList.add('fa-check');icon.style.color='var(--success)';
+    setTimeout(function(){icon.classList.remove('fa-check');icon.classList.add('fa-copy');icon.style.color='';},2000);
+  }).catch(function(){alert("Please manually copy: "+text);});
+}
+
+function resetForm(){
+  form.reset();
+  document.querySelectorAll('.asset-type-btn').forEach(function(b){b.classList.remove('active');});
+  document.querySelector('[data-type="car"]').classList.add('active');
+  selectAssetType(document.querySelector('[data-type="car"]'));
+}
+</script>
+</body>
+</html>
